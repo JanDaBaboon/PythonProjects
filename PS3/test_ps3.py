@@ -4,6 +4,8 @@ from ps3 import *
 # Test code
 #
 
+#git test
+
 def get_word_score(word, n):
     """
     Returns the score for a word. Assumes the word is a

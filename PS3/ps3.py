@@ -23,7 +23,7 @@ SCRABBLE_LETTER_VALUES = {
 # Helper code
 # (you don't need to understand this helper code)
 
-WORDLIST_FILENAME = "words.txt"
+WORDLIST_FILENAME = r"C:\Users\junya\OneDrive\Desktop\MIT\PS3\words.txt"
 
 def load_words():
     """
@@ -67,32 +67,22 @@ def get_frequency_dict(sequence):
 # Problem #1: Scoring a word
 #
 def get_word_score(word, n):
-    """
-    Returns the score for a word. Assumes the word is a
-    valid word.
 
-    You may assume that the input word is always either a string of letters, 
-    or the empty string "". You may not assume that the string will only contain 
-    lowercase letters, so you will have to handle uppercase and mixed case strings 
-    appropriately. 
-
-	The score for a word is the product of two components:
-
-	The first component is the sum of the points for letters in the word.
-	The second component is the larger of:
-            1, or
-            7*wordlen - 3*(n-wordlen), where wordlen is the length of the word
-            and n is the hand length when the word was played
-
-	Letters are scored as in Scrabble; A is worth 1, B is
-	worth 3, C is worth 3, D is worth 2, E is worth 1, and so on.
-
-    word: string
-    n: int >= 0
-    returns: int >= 0
-    """
+    first_component = 0
+    second_component = 0
+    word_score = 0
     
-    pass  # TO DO... Remove this line when you implement this function
+    for x in word:
+        first_component +=SCRABBLE_LETTER_VALUES[x.lower()]
+        
+    second_component = ((7*len(word))-(3*(n-len(word))))
+    
+    if second_component < 1 :
+        second_component = 1
+        
+    
+    word_score = first_component*second_component
+    return word_score
 
 #
 # Make sure you understand how this function works and what it does!
@@ -343,3 +333,5 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = load_words()
     play_game(word_list)
+    
+get_word_score("wordwordword", 6)

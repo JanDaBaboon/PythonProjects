@@ -4,6 +4,8 @@ from ps3 import *
 # Test code
 #
 
+#testing git
+
 def test_get_word_score():
     """
     Unit test for get_word_score
